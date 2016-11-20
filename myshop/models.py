@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlsolvers import reverse
+from django.core.urlresolvers import reverse
 
 class Category(models.Model):
 	name=models.CharField(max_length=200, db_index=True)
@@ -29,7 +29,7 @@ class Product(models.Model):
 	updated=models.DateTimeField(auto_now=True)
 
 	def get_absolute_url(self):
-		retur reverse('myshop:product_detail', args=[self.id, self.slug])
+		return reverse('myshop:product_detail', args=[self.id, self.slug])
 
 	class Meta:
 		ordering=('name',)
