@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.core.urlresolvers import reverse_lazy
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,14 +32,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'myshop', 
+    'cart',
+    'selenium',
+    'orders',
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myshop', 
-    'cart',
+    
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,6 +60,8 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'shop.urls'
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -65,6 +73,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
+                
+
             ],
         },
     },
@@ -108,3 +119,18 @@ MEDIA_ROOT=os.path.join(BASE_DIR, '/media/')
 
 
 CART_SESSION_ID='cart' 
+
+LOGIN_REDIRECT_URL=reverse_lazy('myshop:product_list')
+LOGIN_URL=reverse_lazy('account:login')
+LOGOUT_URL=reverse_lazy('account:logout')
+
+
+AUTHENTICATION_BACKENDS = (
+    
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1289747471084725' 
+SOCIAL_AUTH_FACEBOOK_SECRET = 'eeb24e797bed807fff5a80905a601a9a'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '587115955859-cjdi4cg0surals8cdj7klbfcugj7ui69.apps.googleusercontent.com' # Wartość Consumer Key pobrana z serwisu Google.
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'QM3MHD5alAcKK5N2hv6n8x7W' # Wartość Consumer Secret pobrana z serwisu Google.

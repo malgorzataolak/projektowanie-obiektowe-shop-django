@@ -6,7 +6,7 @@ class Category(models.Model):
 	slug=models.SlugField(max_length=200, db_index=True, unique=True)
 
 	def get_absolute_url(self):
-		return reverse('myshop:products_list_by_category', args=[self.slug])
+		return reverse('myshop:product_list_by_category', args=[self.slug])
 
 	class Meta:
 		ordering=('name',)
