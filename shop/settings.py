@@ -113,8 +113,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR, '/media/')
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 
@@ -125,9 +127,6 @@ LOGIN_URL=reverse_lazy('account:login')
 LOGOUT_URL=reverse_lazy('account:logout')
 
 
-AUTHENTICATION_BACKENDS = (
-    
-)
 
 SOCIAL_AUTH_FACEBOOK_KEY = '1289747471084725' 
 SOCIAL_AUTH_FACEBOOK_SECRET = 'eeb24e797bed807fff5a80905a601a9a'
