@@ -26,7 +26,7 @@ SECRET_KEY = 'oi+phb24k+qzaa@mg2(he^u9#=yi#79d=u#!mx#d-70ms$_wy3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pluszaki.pl']
 
 
 # Application definition
@@ -42,10 +42,12 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    
+    'django.contrib.staticfiles', 
+    'social_django',
     
 )
+
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -74,7 +76,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart.context_processors.cart',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
                 
+
 
             ],
         },
@@ -126,10 +132,19 @@ LOGIN_REDIRECT_URL=reverse_lazy('myshop:product_list')
 LOGIN_URL=reverse_lazy('account:login')
 LOGOUT_URL=reverse_lazy('account:logout')
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
-
-SOCIAL_AUTH_FACEBOOK_KEY = '1289747471084725' 
-SOCIAL_AUTH_FACEBOOK_SECRET = 'eeb24e797bed807fff5a80905a601a9a'
+SOCIAL_AUTH_FACEBOOK_KEY = '1289747471084725' # Wartość App ID pobrana z serwisu Facebook.
+SOCIAL_AUTH_FACEBOOK_SECRET = 'eeb24e797bed807fff5a80905a601a9a' # Wartość App Secret pobrana z serwisu Facebook.
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'pl_PL',
+  'fields': 'id, name, email, age_range'
+}
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '587115955859-cjdi4cg0surals8cdj7klbfcugj7ui69.apps.googleusercontent.com' # Wartość Consumer Key pobrana z serwisu Google.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'QM3MHD5alAcKK5N2hv6n8x7W' # Wartość Consumer Secret pobrana z serwisu Google.

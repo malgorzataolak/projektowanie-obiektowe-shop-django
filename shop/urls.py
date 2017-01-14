@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^', include('myshop.urls', namespace='myshop')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^account/', include('account.urls', namespace='account')),
+    url('^social/', include('social_django.urls', namespace='social')),
 ]
 
 if settings.DEBUG:
