@@ -1,37 +1,100 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+@import url('https://fonts.googleapis.com/css?family=Raleway|Sacramento');
+*{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
 
 body { 
+    font-family: 'Raleway', sans-serif; 
+    font-weight: 100%;
+    line-height: 1.2;
+    width:100%;
+    color:#A42D2D;
+    margin:0px;
+    padding:0px;
+}
+a{
+    text-decoration:none;
+    color:#1B6363;
+}
+
+a:hover{
+    color: #83B6B6;
+}
+h1, h2, h3, h4, h5 , h6 { 
+    font-family: 'Sacramento', cursive; 
+    font-weight:normal;
+}
+
+
+header {
+    font-size:1.2em;
+    overflow:auto;
+}
+
+header .logo {
+    font-family: 'Sacramento', cursive;
+    float:left;
+    color: black;
+    font-size:4em;
+    margin-right:10%;
+    position: absolute;
+    top:100px;
+    width:100%;
+    text-align:center;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 1);
+}
+
+header img{
+    width: 100%;
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif; 
-}
+    opacity: 0.7;
+    vertical-align: middle;
 
-h1, h2, h3, h4, h5 , h6 { 
-    font-family: 'Ubuntu', sans-serif; font-weight:normal;
 }
-
-a {
-    text-decoration:none;
-    color:#5993bb;
-}
-
-a:hover {
-    color:#77b6e2;
-}
-
 a.button, input[type="submit"] {
     color:#fff;
-    background:#5993bb;
+    background:#1B6363;
     border-radius:4px;
     padding:10px 20px;
     font-size:14px;
     border:0;
 }
 
+
+#bar {
+    background:#CB5454;
+    color:#161212;
+    overflow:auto;
+    padding: 4px;
+}
+
+
+
+#bar .cart {
+    float:right;
+    padding-right:3%;
+    padding-top:20px;
+  
+}
+
+.login{
+    overflow:auto;
+    float:left;
+    padding:4px;
+    padding-left:3%;
+    
+}
+
 a.button.light {
     color:#666;
     background:#ededed;
 }
+
+
 
 .text-left {
     text-align:left;
@@ -63,7 +126,7 @@ tbody tr.subtotal {
 }
 
 thead th, tbody tr.total {
-    background:#5993bb;
+    background:#1B6363;
     color:#fff;
     font-weight:bold;
 }
@@ -116,41 +179,21 @@ ul.errorlist {
 }
 
 
-#header {
-    padding:10px 100px;
-    font-size:18px;
-    overflow:auto;
-}
-
-#subheader {
-    background:#ececec;
-    color:#444;
-    padding:15px 100px;
-    overflow:auto;
-}
-
-#header .logo {
-    font-family: 'Ubuntu', sans-serif;
-    float:left;
-    color:#333;
-    font-size:22px;
-    margin-right:10%;
-}
-
-#subheader .cart {
-    float:right;
-    padding-top:4px;
-}
 
 #content {
-    padding:0 100px;
+    padding:0 6%;
     overflow:hidden;
 }
 
+
 #sidebar {
-    width:220px;
+    width:20%;
     padding:30px 20px 0 0;
     float:left;
+}
+
+#sidebar h3{
+    font-size: 2em;
 }
 
 #sidebar ul{
@@ -169,7 +212,7 @@ ul.errorlist {
 }
 
 #sidebar ul li.selected {
-    background:#5993bb;
+    background:#1B6363;
     border-radius:4px;
 }
 
@@ -177,10 +220,11 @@ ul.errorlist {
     color:#fff;
 }
 
+
 #main {
     float:left;
-    width: 96%;
-    margin-right:-220px; 
+    width: 80%;
+    margin-right:0px; 
     overflow:hidden;
 }
 
@@ -190,12 +234,14 @@ ul.errorlist {
     float:left;
     text-align:center;
     line-height:1.2;
+    height:400px;
 }
 
 .product-list .item img {
     width:100%;
     margin-bottom:8px;
 }
+
 
 .product-detail {
     text-align:justify;
@@ -221,38 +267,22 @@ ul.errorlist {
     margin-top:10px;
 }
 
-.order-form {
-    float:left;
+.product-detail label{
+    padding: 2px;
 }
 
-.order-info {
-    float:right;
-    width:300px;
-    background:#efefef;
-    padding:10px 20px;
-    color:#333;
-    border-bottom:4px solid #5993bb;
+.order-info h3{
+    font-size:1.8em;
+
 }
 
-.order-info h3 {
-    color:#5993bb;
-}
 
-.order-info ul li {
-    margin:0;
-    padding:0;
-    font-size:14px;
-}
+footer{
+    width:100%;
+    background-color: #1B6363;
+    color:white;
+    padding:2px;
+    padding-left:6px;
+    text-align: center;
 
-.order-info p {
-    font-weight:bold;
-    float:right;
-}
-
-.order-info span {
-    float:right;
-}
-
-.neg {
-    color:#dc1616;
 }

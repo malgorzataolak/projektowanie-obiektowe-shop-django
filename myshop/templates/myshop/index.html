@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sklep z zabawkami</title>
+    <link href="{% static "css/pluszaki.css" %}" rel="stylesheet">
+</head>
+	<body>
+    
+	<header>
+    <img src="{% static "img/teddy.jpg" %}">
+    <a href="/" class="logo">Pluszaki.pl - Twoje nowe zabawki!</a>
+  </header>
+  
+  <div id="bar">
+
+    <div class="login">
+      {% if request.user.is_authenticated %}
+      
+        <p>Witaj,<b> {{ request.user.first_name}}</b> <p>
+        <a href="{% url "account:logout" %}">Wyloguj</a>
+        
+      {% else %}
+     
+        <a href="{% url "account:login" %}">Zaloguj |</a>
+        <a href="{% url "account:register" %}"> Zarejestruj</a>
+   
+      {% endif %}
+  </div>
+    <div class="cart">
+      {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
+          Koszyk:
+          <a href="{% url "cart:cart_detail" %}">
+            {{ total_items }} produkt{{ total_items|pluralize:"y" }},
+            {{ cart.get_total_price }} zł
+          </a>
+        {% else %}
+          Koszyk jest pusty.
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+	<footer>
+  <p><small>Małgorzata Olak Projektowanie Obiektowe 2016/2017</small></p>
+	</body>
+</html>
