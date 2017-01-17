@@ -13,7 +13,7 @@
     
 	<header>
     <img src="{% static "img/teddy.jpg" %}">
-    <a href="/" class="logo">Pluszaki.pl - Twoje nowe zabawki!</a>
+    <a href="/" class="logo" id="main_header">Pluszaki.pl - Twoje nowe zabawki!</a>
   </header>
   
   <div id="bar">
@@ -22,12 +22,12 @@
       {% if request.user.is_authenticated %}
       
         <p>Witaj,<b> {{ request.user.first_name}}</b> <p>
-        <a href="{% url "account:logout" %}">Wyloguj</a>
+        <a href="{% url "account:logout" %}" id="main_logout">Wyloguj</a>
         
       {% else %}
      
-        <a href="{% url "account:login" %}">Zaloguj |</a>
-        <a href="{% url "account:register" %}"> Zarejestruj</a>
+        <a href="{% url "account:login" %}" id="main_login">Zaloguj |</a>
+        <a href="{% url "account:register" %}" id="main_register"> Zarejestruj</a>
    
       {% endif %}
   </div>
@@ -35,7 +35,7 @@
       {% with total_items=cart|length %}
         {% if cart|length > 0 %}
           Koszyk:
-          <a href="{% url "cart:cart_detail" %}">
+          <a href="{% url "cart:cart_detail" %}" id="main_cartdetail">
             {{ total_items }} produkt{{ total_items|pluralize:"y" }},
             {{ cart.get_total_price }} zł
           </a>

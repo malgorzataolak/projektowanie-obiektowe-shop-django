@@ -23,7 +23,7 @@
         {% with product=item.product %}
           <tr>
             <td>
-              <a href="{{ product.get_absolute_url }}">
+              <a href="{{ product.get_absolute_url }}" id="cart_detail_imgproductdetail">
                 <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
               </a>
             </td>
@@ -32,11 +32,11 @@
               <form action="{% url "cart:cart_add" product.id %}" method="post">
                 {{ item.update_quantity_form.quantity }}
                 {{ item.update_quantity_form.update }}
-                <input type="submit" value="Zmień">
+                <input type="submit" value="Zmień" id="cart_detail_updatequantity">
                 {% csrf_token %}
               </form>
             </td>
-            <td><a href="{% url "cart:cart_remove" product.id %}">Usuń</a></td>
+            <td><a href="{% url "cart:cart_remove" product.id %}" id="cart_detail_removeproduct">Usuń</a></td>
             <td class="num">{{ item.price }} zł</td>
             <td class="num">{{ item.total_price }} zł</td>
           </tr>
@@ -50,9 +50,9 @@
     </tbody>
   </table>
   <p class="text-right">
-    <a href="{% url "myshop:product_list" %}" class="button light">Kontynuuj zakupy</a>
+    <a href="{% url "myshop:product_list" %}" class="button light" id="cart_detail_continueshopping">Kontynuuj zakupy</a>
    
-     <a href="{% url "orders:order_create" %}" class="button">
+     <a href="{% url "orders:order_create" %}" class="button" id="cart_detail_createorder">
       Do kasy
     </a>
   </p>

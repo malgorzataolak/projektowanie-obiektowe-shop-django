@@ -6,20 +6,20 @@
 <script src="https://use.fontawesome.com/e2159c4584.js"></script>
 <h1> Logowanie </h1>
 <p>Zaloguj się przez:</p>
-<a href="{% url 'social:begin' 'facebook' %}"><i class="fa fa-facebook-official fa-4x" aria-hidden="true"></i></a>
-<a href="{% url 'social:begin' 'google-oauth2' %}"><i class="fa fa-google fa-4x" aria-hidden="true"></i></a>
+<a href="{% url 'social:begin' 'facebook' %}" id="account_registration_login_facebook"><i class="fa fa-facebook-official fa-4x" aria-hidden="true"></i></a>
+<a href="{% url 'social:begin' 'google-oauth2' %}" id="account_registration_login_google"><i class="fa fa-google fa-4x" aria-hidden="true"></i></a>
 <p>lub: </p>
 {% if form.errors %}
 	<p>Nazwa użytkownika lub hasło są niepoprawne, spróbuj jeszcze raz. </p>
 {% else %}
 	<p>Wypełnij poniższy formularz, aby się zalogować </p>
-	<p>Jeśli nie masz jeszcze konta, możesz je utworzyć <a href="{% url "account:register" %}">tutaj</a>.</p>
+	<p>Jeśli nie masz jeszcze konta, możesz je utworzyć <a href="{% url "account:register" %}" id="account_registration_login_createaccount">tutaj</a>.</p>
 {% endif %}
 <form action="{% url 'account:login' %}" method="post">
 	{{form.as_p}}
 	{% csrf_token %}
-	<input type="hidden" name="next" value="{{ next }}"/>
-	<p><input type="submit" value="Zaloguj"></p>
+	<input type="hidden" name="next" value="{{ next }}" id="account_registration_login_next/>
+	<p><input type="submit" value="Zaloguj" id="account_registration_login"></p>
 </form>
 
 {% endblock %}
