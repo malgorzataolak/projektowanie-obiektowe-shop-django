@@ -12,7 +12,7 @@
 	<body>
     
 	<header>
-    <img src="{% static "img/teddy.jpg" %}">
+    <img src="{% static "img/teddy.jpg" %}" alt="naglowek">
     <a href="/" class="logo" id="main_header">Pluszaki.pl - Twoje nowe zabawki!</a>
   </header>
   
@@ -21,7 +21,7 @@
     <div class="login">
       {% if request.user.is_authenticated %}
       
-        <p>Witaj,<b> {{ request.user.first_name}}</b> <p>
+        <p>Witaj,<strong> {{ request.user.first_name}}</strong> <p>
         <a href="{% url "account:logout" %}" id="main_logout">Wyloguj</a>
         
       {% else %}

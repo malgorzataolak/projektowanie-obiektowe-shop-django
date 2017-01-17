@@ -18,7 +18,7 @@
 <form action="{% url 'account:login' %}" method="post">
 	{{form.as_p}}
 	{% csrf_token %}
-	<input type="hidden" name="next" value="{{ next }}" id="account_registration_login_next/>
+	<input type="hidden" name="next" value="{{ next }}" id="account_registration_login_next"/>
 	<p><input type="submit" value="Zaloguj" id="account_registration_login"></p>
 </form>
 
