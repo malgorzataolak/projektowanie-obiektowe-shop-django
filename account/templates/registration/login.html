@@ -3,7 +3,12 @@
 {% block title %}Logowanie{% endblock %}
 
 {% block content %}
+<script src="https://use.fontawesome.com/e2159c4584.js"></script>
 <h1> Logowanie </h1>
+<p>Zaloguj się przez:</p>
+<a href="{% url 'social:begin' 'facebook' %}"><i class="fa fa-facebook-official fa-4x" aria-hidden="true"></i></a>
+<a href="{% url 'social:begin' 'google-oauth2' %}"><i class="fa fa-google fa-4x" aria-hidden="true"></i></a>
+<p>lub: </p>
 {% if form.errors %}
 	<p>Nazwa użytkownika lub hasło są niepoprawne, spróbuj jeszcze raz. </p>
 {% else %}
@@ -16,6 +21,5 @@
 	<input type="hidden" name="next" value="{{ next }}"/>
 	<p><input type="submit" value="Zaloguj"></p>
 </form>
-<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-<a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+
 {% endblock %}
